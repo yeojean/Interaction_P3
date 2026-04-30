@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Begin a letter — Dear Stranger</title>
-<link rel="stylesheet" href="style.css?v=99">
+<link rel="stylesheet" href="style.css?v=100">
 </head>
 <body>
 
@@ -30,30 +30,30 @@
 
   <div class="write-layout">
     <section>
-      <div class="filter-group">
+      <div class="filter-group" data-select="single">
         <span class="label">Read by someone who is</span>
         <div class="chips">
-          <button class="chip active">Woman</button>
+          <button class="chip">Woman</button>
           <button class="chip">Man</button>
           <button class="chip">Nonbinary</button>
           <button class="chip">Any gender</button>
         </div>
       </div>
 
-      <div class="filter-group">
+      <div class="filter-group" data-select="single">
         <span class="label">At this life stage</span>
         <div class="chips">
           <button class="chip">Undergrad</button>
-          <button class="chip active">Grad student</button>
+          <button class="chip">Grad student</button>
           <button class="chip">Post-grad / working</button>
           <button class="chip">Any stage</button>
         </div>
       </div>
 
-      <div class="filter-group">
+      <div class="filter-group" data-select="multi">
         <span class="label">Who has been through (optional)</span>
         <div class="chips">
-          <button class="chip active">Relationships</button>
+          <button class="chip">Relationships</button>
           <button class="chip">Identity / coming out</button>
           <button class="chip">Mental health</button>
           <button class="chip">Family conflict</button>
@@ -66,12 +66,12 @@
 
       <article class="stationery" style="margin-top: 40px;">
         <p class="salutation">Dear stranger,</p>
-        <textarea placeholder="Start anywhere. You don't have to make sense yet."></textarea>
+        <textarea id="letter-body" placeholder="Start anywhere. You don't have to make sense yet."></textarea>
         <p class="signature">— Anonymous</p>
       </article>
 
       <div class="write-actions">
-        <span class="count">0 characters</span>
+        <span class="count" id="char-count">0 characters</span>
         <a href="sent.html" class="btn">Seal &amp; send &rarr;</a>
       </div>
     </section>
@@ -109,6 +109,34 @@
   <a href="inbox.html">Inbox</a><span class="sep">·</span>
   <a href="about.html">About</a>
 </nav>
+
+<script>
+  document.querySelectorAll('.filter-group').forEach(function(group) {
+    var mode = group.getAttribute('data-select');
+    var chips = group.querySelectorAll('.chip');
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (mode === 'single') {
+          var alreadyActive = chip.classList.contains('active');
+          chips.forEach(function(c) { c.classList.remove('active'); });
+          if (!alreadyActive) chip.classList.add('active');
+        } else {
+          chip.classList.toggle('active');
+        }
+      });
+    });
+  });
+
+  var ta = document.getElementById('letter-body');
+  var count = document.getElementById('char-count');
+  if (ta && count) {
+    ta.addEventListener('input', function() {
+      var n = ta.value.length;
+      count.textContent = n + (n === 1 ? ' character' : ' characters');
+    });
+  }
+</script>
 
 </body>
 </html>
