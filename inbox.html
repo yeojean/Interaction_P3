@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inbox — Dear Stranger</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=100">
 </head>
 <body>
+
 <header class="site-header">
   <div class="nav-inner">
-    <a href="index.html" class="brand">DearStranger</a>
+    <a href="index.html" class="brand">Dear Stranger</a>
     <nav class="nav-links">
       <a href="about.html">About</a>
+      <a href="about.html#ethics">Ethics</a>
       <a href="inbox.html">Inbox</a>
     </nav>
   </div>
@@ -19,8 +21,10 @@
 
 <main class="page">
   <div class="narrow">
-    <div class="page-eyebrow">Your Correspondence</div>
-    <h1 class="page-title">The <em>Letters</em>.</h1>
+    <div class="page-eyebrow">
+      <span>Your inbox</span>
+    </div>
+    <h1 class="page-title">Letters waiting.</h1>
 
     <div class="tabs">
       <button class="tab active">To Read <span class="count">3</span></button>
@@ -29,57 +33,89 @@
     </div>
 
     <ul class="inbox-list">
-      <li><a href="read.html" class="inbox-item unread">
-        <div class="icon"></div>
-        <div class="body">
-          <div class="tag-row">Relationships · from undergrad · woman</div>
-          <div class="preview">I have been having feelings for someone in my program and I can't tell any of my friends…</div>
-        </div>
-        <span class="when">2h ago</span>
-      </a></li>
-      <li><a href="read.html" class="inbox-item unread">
-        <div class="icon"></div>
-        <div class="body">
-          <div class="tag-row">Identity · from undergrad · nonbinary</div>
-          <div class="preview">I came out to my studio class but not my family. They're flying in next week.</div>
-        </div>
-        <span class="when">6h ago</span>
-      </a></li>
-      <li><a href="read.html" class="inbox-item unread">
-        <div class="icon"></div>
-        <div class="body">
-          <div class="tag-row">Mental health · from grad</div>
-          <div class="preview">Same crisis as last semester — I'm not actually good enough to be here.</div>
-        </div>
-        <span class="when">yesterday</span>
-      </a></li>
-      <li><a href="read.html" class="inbox-item">
-        <div class="icon"></div>
-        <div class="body">
-          <div class="tag-row">Far from home · from grad · woman</div>
-          <div class="preview">My grandmother died last night and I can't fly home. I have critique tomorrow.</div>
-        </div>
-        <span class="when">3 days ago</span>
-      </a></li>
-      <li><a href="read.html" class="inbox-item">
-        <div class="icon"></div>
-        <div class="body">
-          <div class="tag-row">Family · from undergrad · man</div>
-          <div class="preview">My dad keeps asking why I'm "wasting" his money on design school.</div>
-        </div>
-        <span class="when">5 days ago</span>
-      </a></li>
+      <li>
+        <a href="read.html" class="inbox-item unread">
+          <div class="icon"></div>
+          <div class="body">
+            <div class="tag-row">Relationships · from undergrad · woman</div>
+            <div class="preview">I have been having feelings for someone in my program and I can't tell any of my friends because our class is so small…</div>
+          </div>
+          <span class="when">2h ago</span>
+        </a>
+      </li>
+      <li>
+        <a href="read.html" class="inbox-item unread">
+          <div class="icon"></div>
+          <div class="body">
+            <div class="tag-row">Identity · from undergrad · nonbinary</div>
+            <div class="preview">I came out to my studio class but not my family. They're flying in next week and I don't know who I'm supposed to be when they land.</div>
+          </div>
+          <span class="when">6h ago</span>
+        </a>
+      </li>
+      <li>
+        <a href="read.html" class="inbox-item unread">
+          <div class="icon"></div>
+          <div class="body">
+            <div class="tag-row">Mental health · from grad · any</div>
+            <div class="preview">Same thing as last semester. I'm not actually good enough to be here. Does this feeling ever stop coming back?</div>
+          </div>
+          <span class="when">yesterday</span>
+        </a>
+      </li>
+      <li>
+        <a href="read.html" class="inbox-item">
+          <div class="icon"></div>
+          <div class="body">
+            <div class="tag-row">Far from home · from grad · woman</div>
+            <div class="preview">My grandmother died last night and I can't fly home. I have critique tomorrow and I don't know if I should cancel or just go.</div>
+          </div>
+          <span class="when">3 days ago</span>
+        </a>
+      </li>
+      <li>
+        <a href="read.html" class="inbox-item">
+          <div class="icon"></div>
+          <div class="body">
+            <div class="tag-row">Family · from undergrad · man</div>
+            <div class="preview">My dad keeps asking why I'm "wasting" his money on design school. I'm starting to believe him. Is that normal?</div>
+          </div>
+          <span class="when">5 days ago</span>
+        </a>
+      </li>
     </ul>
 
-    <div style="text-align:center; padding: 60px 24px 40px;">
-      <p style="font-family: var(--script); font-size: 42px; margin: 0 0 24px; line-height: 1;">Quiet week?</p>
-      <a href="write.html" class="btn">Begin a letter</a>
+    <div class="ornament">&amp;</div>
+
+    <div style="text-align:center; padding: 20px 24px 40px;">
+      <div class="caps" style="font-family: var(--sans); font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 12px;">
+        Slow week?
+      </div>
+      <p style="font-family: var(--script); font-size: 42px; color: var(--script-ink); margin: 0 0 24px; line-height: 1;">
+        Try writing one yourself.
+      </p>
+      <a href="write.html" class="btn">Start a letter</a>
     </div>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="footer-inner"><div class="script-mark">DearStranger</div></div>
+  <div class="footer-inner">
+    <div class="script-mark">Dear Stranger</div>
+    <div class="links">
+      <a href="about.html">About</a>
+      <a href="about.html#ethics">Ethics</a>
+      <a href="about.html#safety">Safety</a>
+    </div>
+  </div>
 </footer>
+
+<nav class="proto-bar">
+  <a href="index.html">Home</a><span class="sep">·</span>
+  <a href="write.html">Write</a><span class="sep">·</span>
+  <a href="inbox.html" class="current">Inbox</a><span class="sep">·</span>
+  <a href="about.html">About</a>
+</nav>
+
 </body>
 </html>
