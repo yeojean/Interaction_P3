@@ -4,22 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Begin a letter — Dear Stranger</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=99">
 </head>
 <body>
+
 <header class="site-header">
   <div class="nav-inner">
-    <a href="index.html" class="brand">DearStranger</a>
+    <a href="index.html" class="brand">Dear Stranger</a>
     <nav class="nav-links">
       <a href="about.html">About</a>
       <a href="about.html#ethics">Ethics</a>
+      <a href="about.html#safety">Safety</a>
       <a href="inbox.html">Inbox</a>
     </nav>
   </div>
 </header>
 
 <main class="page">
-  <div class="page-eyebrow">Step I of II · Compose</div>
+  <div class="page-eyebrow">
+    <span>Step I of II</span>
+    <span>·</span>
+    <span>Compose</span>
+  </div>
   <h1 class="page-title">Begin your <em>letter</em>.</h1>
 
   <div class="write-layout">
@@ -33,6 +39,7 @@
           <button class="chip">Any gender</button>
         </div>
       </div>
+
       <div class="filter-group">
         <span class="label">At this life stage</span>
         <div class="chips">
@@ -42,6 +49,7 @@
           <button class="chip">Any stage</button>
         </div>
       </div>
+
       <div class="filter-group">
         <span class="label">Who has been through (optional)</span>
         <div class="chips">
@@ -58,33 +66,49 @@
 
       <article class="stationery" style="margin-top: 40px;">
         <p class="salutation">Dear stranger,</p>
-        <textarea placeholder="Tell them what you cannot say out loud.">I have been having feelings for someone in my program and I can't tell any of my friends because our class is so small. Everyone would know who I meant within two questions. I'm not even sure if I want to act on it — I think I mostly want someone to say that having a feeling is not the same as making a mistake.</textarea>
+        <textarea placeholder="Start anywhere. You don't have to make sense yet."></textarea>
         <p class="signature">— Anonymous</p>
       </article>
 
       <div class="write-actions">
-        <span class="count">422 characters · about one page</span>
-        <a href="sent.html" class="btn">Seal &amp; send →</a>
+        <span class="count">0 characters</span>
+        <a href="sent.html" class="btn">Seal &amp; send &rarr;</a>
       </div>
     </section>
 
     <aside class="write-aside">
       <h4>What happens next</h4>
       <ol>
-        <li>Your letter is delivered to one reader who matches your filters.</li>
-        <li>You'll be notified when they reply — usually within 1–2 days.</li>
-        <li>If no one claims it within a week, we quietly re-match.</li>
-        <li>Either of you can stop the thread at any moment.</li>
+        <li>Your letter goes to one reader who matches the filters above.</li>
+        <li>You get a notification when they write back, usually in 1–2 days.</li>
+        <li>If no one picks it up within a week, it gets re-matched to someone else.</li>
+        <li>Either of you can stop the thread, no explanation needed.</li>
       </ol>
+      <p style="margin-top: 22px; padding-top: 22px; border-top: 1px solid var(--line); font-size: 12px; letter-spacing: 1px; text-transform: uppercase; font-style: normal; color: var(--ink-faint);">
+        In crisis, please call <strong style="color:var(--periwinkle-deep); font-weight:500;">988</strong> or text HOME to 741741.
+      </p>
     </aside>
   </div>
 </main>
 
 <footer class="site-footer">
   <div class="footer-inner">
-    <div class="script-mark">DearStranger</div>
-    <div class="links"><a href="about.html">About</a></div>
+    <div class="script-mark">Dear Stranger</div>
+    <div>By Y. Kim · Parsons '26</div>
+    <div class="links">
+      <a href="about.html">About</a>
+      <a href="about.html#ethics">Ethics</a>
+      <a href="about.html#safety">Safety</a>
+    </div>
   </div>
 </footer>
+
+<nav class="proto-bar">
+  <a href="index.html">Home</a><span class="sep">·</span>
+  <a href="write.html" class="current">Write</a><span class="sep">·</span>
+  <a href="inbox.html">Inbox</a><span class="sep">·</span>
+  <a href="about.html">About</a>
+</nav>
+
 </body>
 </html>
