@@ -4,7 +4,56 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Dear Stranger</title>
-<link rel="stylesheet" href="style.css?v=99">
+<link rel="stylesheet" href="style.css?v=100">
+<style>
+  .hero-envelope-link {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 480px;
+    margin: 0 auto;
+    border: none !important;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .hero-envelope-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity .4s ease;
+  }
+  .hero-envelope-link .env-open {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    width: 100%;
+    max-width: 100%;
+  }
+  .hero-envelope-link:hover .env-closed { opacity: 0; }
+  .hero-envelope-link:hover .env-open { opacity: 1; }
+  .hero-envelope-link .env-cta {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: var(--script);
+    font-size: 56px;
+    color: var(--ink);
+    opacity: 0;
+    transition: opacity .4s ease .1s;
+    pointer-events: none;
+    white-space: nowrap;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .hero-envelope-link:hover .env-cta { opacity: 1; }
+  @media (max-width: 840px) {
+    .hero-envelope-link .env-cta { font-size: 36px; }
+  }
+</style>
 </head>
 <body>
 
@@ -34,9 +83,11 @@
 
     <div class="sub-head">Write the letter you can't send.</div>
 
-    <div class="hero-envelope">
-      <img src="Envelope2.jpg" alt="Envelope" style="width: 100%; max-width: 480px; height: auto; display: block; margin: 0 auto;">
-    </div>
+    <a href="write.html" class="hero-envelope-link">
+      <img src="Envelope2.jpg" alt="Envelope" class="env-closed">
+      <img src="Envelope_open.jpg" alt="Open envelope" class="env-open">
+      <span class="env-cta">Write your letter</span>
+    </a>
 
     <div class="hero-cta" style="margin-top: 64px;">
       <a href="write.html" class="btn">Begin a letter</a>
