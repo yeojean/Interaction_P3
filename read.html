@@ -4,14 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>A Letter — Dear Stranger</title>
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=100">
 </head>
 <body>
+
 <header class="site-header">
   <div class="nav-inner">
-    <a href="index.html" class="brand">DearStranger</a>
+    <a href="index.html" class="brand">Dear Stranger</a>
     <nav class="nav-links">
       <a href="about.html">About</a>
+      <a href="about.html#ethics">Ethics</a>
       <a href="inbox.html">Inbox</a>
     </nav>
   </div>
@@ -20,18 +22,18 @@
 <main class="page">
   <div class="narrow">
     <div class="read-meta">
-      <a href="inbox.html">← Back to inbox</a>
+      <a href="inbox.html">&larr; Back to inbox</a>
       <span>Relationships · undergrad · woman · 2h ago</span>
     </div>
 
     <section class="received-letter">
       <article class="stationery">
         <p class="salutation">Dear stranger,</p>
-        <div class="body">I have been having feelings for someone in my program and I can't tell any of my friends because our class is so small. Everyone would know who I meant within two questions.
+        <div class="body">I have been having feelings for someone in my program and I can't tell anyone in my friend group because our class is honestly so small. Everyone would know who I meant within like two questions.
 
-I'm not even sure if I want to act on it. I think I mostly want someone to say that having a feeling is not the same as making a mistake.
+I'm not even sure if I want to do anything about it. I think I mostly want someone to tell me that having a feeling isn't the same as making a mistake. That thinking about someone for a month isn't a moral failure or whatever.
 
-You don't know them. You don't know me. You can just tell me what you think.
+I've been rehearsing this conversation in my head with different people and every version of it ends with me being embarrassed. I think that's why I'm writing to you instead. You don't know them. You don't know me. You can just tell me what you actually think.
 
 Maybe you've been here. Maybe you can tell me what you wish someone had told you.</div>
         <p class="signature">— Anonymous, undergrad</p>
@@ -42,7 +44,7 @@ Maybe you've been here. Maybe you can tell me what you wish someone had told you
 
     <article class="stationery">
       <p class="salutation">Dear her,</p>
-      <textarea placeholder="Write back the way you wish someone had written to you."></textarea>
+      <textarea placeholder="Write back the way you'd want someone to write to you. You don't have to have an answer. Being heard is usually enough. No advice unless she asked."></textarea>
       <p class="signature">— You, grad</p>
     </article>
 
@@ -51,13 +53,32 @@ Maybe you've been here. Maybe you can tell me what you wish someone had told you
         <button class="btn ghost">Save for later</button>
         <button class="btn ghost">Flag for moderator</button>
       </div>
-      <a href="sent.html" class="btn">Send reply →</a>
+      <a href="sent.html" class="btn">Send reply &rarr;</a>
     </div>
+
+    <p style="font-family:var(--sans); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--ink-faint); margin-top:28px; text-align:center;">
+      By replying, you agree to the <a href="about.html#guidelines" style="color:inherit; border-bottom:1px solid var(--line);">reply guidelines</a>: read first, advice only if she asks.
+    </p>
   </div>
 </main>
 
 <footer class="site-footer">
-  <div class="footer-inner"><div class="script-mark">DearStranger</div></div>
+  <div class="footer-inner">
+    <div class="script-mark">Dear Stranger</div>
+    <div class="links">
+      <a href="about.html">About</a>
+      <a href="about.html#ethics">Ethics</a>
+      <a href="about.html#safety">Safety</a>
+    </div>
+  </div>
 </footer>
+
+<nav class="proto-bar">
+  <a href="index.html">Home</a><span class="sep">·</span>
+  <a href="write.html">Write</a><span class="sep">·</span>
+  <a href="inbox.html" class="current">Inbox</a><span class="sep">·</span>
+  <a href="about.html">About</a>
+</nav>
+
 </body>
 </html>
