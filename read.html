@@ -1,84 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Letter — Dear Stranger</title>
-<link rel="stylesheet" href="style.css?v=100">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Letter — Dear Stranger</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&family=Kapakana:wght@400&display=swap');
+
+    :root {
+      --mint: #DDF1EA;
+      --mint-soft: #E8F5EF;
+      --paper: #F8F5E9;
+      --paper-warm: #F0EAD6;
+      --ink: #2D1300;
+      --ink-soft: #3A3A3A;
+      --ink-faint: #7A7A7A;
+      --line: #9FC6BA;
+      --line-faint: #C5DCD3;
+      --accent-deep: #4F6A77;
+
+      --mono: "Kantumruy Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+      --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+      --script: "Kapakana", "Pinyon Script", cursive;
+      --max: 1100px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--mono);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--mint);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px;
+      transition: all .15s;
+    }
+    a:hover { border-color: var(--accent-deep); color: var(--accent-deep); }
+
+    .site-header {
+      padding: 36px 48px 32px;
+      background: transparent;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: var(--script);
+      font-size: 28px;
+      color: var(--ink);
+      border: none;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+    .nav-links a { border: none; color: var(--ink); }
+
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 40px 32px 100px;
+    }
+
+    .narrow {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .read-meta {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .read-meta-back {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      background: rgba(248, 245, 233, 0.62);
+      padding: 8px 12px;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-radius: 2px;
+      color: var(--ink);
+    }
+    .read-meta-back:hover {
+      background: var(--paper);
+      border-color: var(--ink);
+    }
+
+    .read-meta-info {
+      font-family: var(--mono);
+      font-size: 14px;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+    }
+
+    .stationery {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 48px 52px;
+      position: relative;
+      background-image: repeating-linear-gradient(
+        to bottom,
+        transparent 0 28px,
+        var(--line-faint) 28px 29px
+      );
+    }
+
+    .stationery .salutation {
+      font-family: var(--script);
+      font-size: 44px;
+      color: var(--ink);
+      margin: 0 0 12px;
+      line-height: 1;
+    }
+
+    .received-letter .body {
+      font-family: var(--mono);
+      font-size: 14px;
+      line-height: 29px;
+      color: var(--ink);
+      white-space: pre-wrap;
+    }
+
+    .stationery textarea {
+      width: 100%;
+      min-height: 260px;
+      border: none;
+      background: transparent;
+      resize: vertical;
+      font-family: var(--mono);
+      font-size: 15px;
+      line-height: 29px;
+      color: var(--ink);
+      outline: none;
+      padding: 0;
+    }
+
+    .stationery textarea::placeholder {
+      color: var(--ink-faint);
+      font-style: italic;
+    }
+
+    .stationery .signature {
+      font-family: var(--script);
+      font-size: 36px;
+      color: var(--ink);
+      margin-top: 24px;
+      text-align: right;
+      line-height: 1;
+    }
+
+    .divider-or {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      margin: 34px 0 22px;
+      font-family: var(--script);
+      font-size: clamp(68px, 8vw, 122px);
+      line-height: 0.88;
+      letter-spacing: -0.7px;
+      color: var(--ink);
+    }
+
+    .divider-or::before,
+    .divider-or::after {
+      content: "";
+      flex: 1;
+      max-width: 170px;
+      height: 1px;
+      background: var(--ink);
+      opacity: 0.45;
+    }
+
+    .reply-stationery {
+      border: 1px solid var(--line); /* 원본 편지지와 동일 두께 */
+      box-shadow: none;
+    }
+
+    .write-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid var(--ink);
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      cursor: pointer;
+      transition: all .2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 400;
+    }
+    .btn:hover { background: var(--ink); color: var(--mint); }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink-soft);
+      border: none;
+      border-bottom: 1px solid var(--ink);
+      padding: 6px 2px;
+      letter-spacing: 2px;
+      font-size: 10px;
+    }
+
+    .reply-guideline {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .site-footer {
+      padding: 56px 32px 48px;
+      border-top: 1px solid var(--ink);
+      margin-top: 96px;
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .script-mark {
+      font-family: var(--script);
+      font-size: 36px;
+      letter-spacing: 0;
+      text-transform: none;
+      line-height: 1;
+    }
+
+    .footer-inner .links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-inner a { border: none; color: var(--ink); }
+
+    .proto-bar {
+      position: fixed;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--ink);
+      color: var(--mint);
+      padding: 8px 12px;
+      border-radius: 999px;
+      display: flex;
+      gap: 4px;
+      font-family: var(--sans);
+      font-size: 9px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      z-index: 100;
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .3);
+      opacity: .88;
+    }
+
+    .proto-bar a {
+      color: var(--mint);
+      border: none;
+      padding: 5px 12px;
+      border-radius: 999px;
+      opacity: .7;
+    }
+
+    .proto-bar a.current { opacity: 1; background: var(--accent-deep); }
+    .proto-bar .sep { opacity: .3; padding: 5px 2px; }
+
+    @media (max-width: 840px) {
+      .site-header { padding: 24px 20px 20px; }
+      .nav-inner { gap: 16px; flex-wrap: wrap; }
+      .nav-links { gap: 14px; font-size: 10px; letter-spacing: 1.5px; }
+
+      .page { padding: 32px 20px 72px; }
+      .stationery { padding: 32px 24px; }
+      .stationery .salutation { font-size: 32px; }
+      .stationery .signature { font-size: 28px; }
+
+      .read-meta {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .read-meta-back {
+        width: fit-content;
+        margin: 0 auto;
+      }
+      .read-meta-info {
+        text-align: center;
+        font-size: 12px;
+      }
+
+      .divider-or {
+        font-size: clamp(50px, 16vw, 82px);
+        margin: 28px 0 16px;
+      }
+      .divider-or::before,
+      .divider-or::after {
+        max-width: 84px;
+      }
+
+      .write-actions {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+      }
+
+      .write-actions > div {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+      }
+
+      .write-actions .btn {
+        justify-content: center;
+      }
+
+      .proto-bar { font-size: 8px; bottom: 10px; padding: 6px 8px; }
+      .proto-bar a { padding: 4px 8px; }
+    }
+  </style>
 </head>
 <body>
-
-<header class="site-header">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">Dear Stranger</a>
-    <nav class="nav-links">
-      <a href="about.html">About</a>
-      <a href="about.html#ethics">Ethics</a>
-      <a href="inbox.html">Inbox</a>
-    </nav>
-  </div>
-</header>
-
-<main class="page">
-  <div class="narrow">
-    <div class="read-meta">
-      <a href="inbox.html">&larr; Back to inbox</a>
-      <span>Relationships · undergrad · woman · 2h ago</span>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">Dear Stranger</a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="about.html#ethics">Ethics</a>
+        <a href="inbox.html">Inbox</a>
+      </nav>
     </div>
+  </header>
 
-    <section class="received-letter">
-      <article class="stationery">
-        <p class="salutation">Dear stranger,</p>
-        <div class="body">I have been having feelings for someone in my program and I can't tell anyone in my friend group because our class is honestly so small. Everyone would know who I meant within like two questions.
+  <main class="page">
+    <div class="narrow">
+      <div class="read-meta">
+        <a href="inbox.html" class="read-meta-back">&larr; Back to inbox</a>
+        <span class="read-meta-info">Relationships · undergrad · woman · 2h ago</span>
+      </div>
+
+      <section class="received-letter">
+        <article class="stationery">
+          <p class="salutation">Dear stranger,</p>
+          <div class="body">I have been having feelings for someone in my program and I can't tell anyone in my friend group because our class is honestly so small. Everyone would know who I meant within like two questions.
 
 I'm not even sure if I want to do anything about it. I think I mostly want someone to tell me that having a feeling isn't the same as making a mistake. That thinking about someone for a month isn't a moral failure or whatever.
 
 I've been rehearsing this conversation in my head with different people and every version of it ends with me being embarrassed. I think that's why I'm writing to you instead. You don't know them. You don't know me. You can just tell me what you actually think.
 
 Maybe you've been here. Maybe you can tell me what you wish someone had told you.</div>
-        <p class="signature">— Anonymous, undergrad</p>
+          <p class="signature">— Anonymous, undergrad</p>
+        </article>
+      </section>
+
+      <div class="divider-or">&amp; a reply</div>
+
+      <article class="stationery reply-stationery">
+        <p class="salutation">Dear her,</p>
+        <textarea placeholder="Write back the way you'd want someone to write to you. You don't have to have an answer. Being heard is usually enough. No advice unless she asked."></textarea>
+        <p class="signature">— You, grad</p>
       </article>
-    </section>
 
-    <div class="divider-or">&amp; a reply</div>
-
-    <article class="stationery">
-      <p class="salutation">Dear her,</p>
-      <textarea placeholder="Write back the way you'd want someone to write to you. You don't have to have an answer. Being heard is usually enough. No advice unless she asked."></textarea>
-      <p class="signature">— You, grad</p>
-    </article>
-
-    <div class="write-actions">
-      <div style="display:flex; gap:20px;">
-        <button class="btn ghost">Save for later</button>
-        <button class="btn ghost">Flag for moderator</button>
+      <div class="write-actions">
+        <div style="display:flex; gap:20px;">
+          <button class="btn ghost">Save for later</button>
+          <button class="btn ghost">Flag for moderator</button>
+        </div>
+        <a href="sent.html" class="btn">Send reply &rarr;</a>
       </div>
-      <a href="sent.html" class="btn">Send reply &rarr;</a>
+
+      <p class="reply-guideline">
+        By replying, you agree to the
+        <a href="about.html#guidelines" style="color:inherit; border-bottom:1px solid var(--line);">reply guidelines</a>:
+        read first, advice only if she asks.
+      </p>
     </div>
+  </main>
 
-    <p style="font-family:var(--sans); font-size:10px; letter-spacing:2px; text-transform:uppercase; color:var(--ink-faint); margin-top:28px; text-align:center;">
-      By replying, you agree to the <a href="about.html#guidelines" style="color:inherit; border-bottom:1px solid var(--line);">reply guidelines</a>: read first, advice only if she asks.
-    </p>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="script-mark">Dear Stranger</div>
-    <div class="links">
-      <a href="about.html">About</a>
-      <a href="about.html#ethics">Ethics</a>
-      <a href="about.html#safety">Safety</a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="script-mark">Dear Stranger</div>
+      <div class="links">
+        <a href="about.html">About</a>
+        <a href="about.html#ethics">Ethics</a>
+        <a href="about.html#safety">Safety</a>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<nav class="proto-bar">
-  <a href="index.html">Home</a><span class="sep">·</span>
-  <a href="write.html">Write</a><span class="sep">·</span>
-  <a href="inbox.html" class="current">Inbox</a><span class="sep">·</span>
-  <a href="about.html">About</a>
-</nav>
-
+  <nav class="proto-bar">
+    <a href="index.html">Home</a><span class="sep">·</span>
+    <a href="write.html">Write</a><span class="sep">·</span>
+    <a href="inbox.html" class="current">Inbox</a><span class="sep">·</span>
+    <a href="about.html">About</a>
+  </nav>
 </body>
 </html>
