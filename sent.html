@@ -45,9 +45,17 @@
 
     img { max-width: 100%; display: block; }
 
+    .sent-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
     .site-header {
       position: static;
       padding: 30px 42px 8px;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
     }
 
     .nav-inner {
@@ -76,12 +84,6 @@
       text-transform: uppercase;
     }
     .nav-links a { border: none; }
-
-    .sent-page {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
 
     .sent-confirm {
       width: min(92vw, 760px);
@@ -219,7 +221,7 @@
   <main class="sent-confirm">
     <div class="eyebrow">Step II of II</div>
 
-    <img src="images/Envelope2.jpg" alt="Sealed envelope" class="sent-envelope-image" />
+    <img id="sentEnvelopeImage" src="./images/Envelope2.jpg" alt="Sealed envelope" class="sent-envelope-image" />
 
     <h1>On its way.</h1>
 
@@ -236,5 +238,27 @@
       <a href="inbox.html" class="btn ghost">Read another while you wait</a>
     </div>
   </main>
+
+  <script>
+    (function () {
+      const img = document.getElementById("sentEnvelopeImage");
+      if (!img) return;
+
+      const candidates = [
+        "./images/Envelope2.jpg",
+        "images/Envelope2.jpg",
+        "Envelope2.jpg",
+        "file:///Users/yeojinkim/Library/Mobile%20Documents/com~apple~CloudDocs/2026%20SPRING/INTERACTION/INTERACTION_P3_WEBSITE/images/Envelope2.jpg"
+      ];
+
+      let idx = 0;
+      img.onerror = function () {
+        idx += 1;
+        if (idx < candidates.length) {
+          img.src = candidates[idx];
+        }
+      };
+    })();
+  </script>
 </body>
 </html>
