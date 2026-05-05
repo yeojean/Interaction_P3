@@ -1,3 +1,7 @@
+좋아, 바로 붙여넣기용으로 줄게.
+
+```html
+<!-- sent.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +10,11 @@
 <title>Sent — Dear Stranger</title>
 <link rel="stylesheet" href="style.css?v=100">
 </head>
-<body>
+<body class="sent-page">
 
 <header class="site-header">
   <div class="nav-inner">
-    <a href="index.html" class="brand">Dear Stranger</a>
+    <a href="index.html" class="brand">DearStranger</a>
     <nav class="nav-links">
       <a href="about.html">About</a>
       <a href="inbox.html">Inbox</a>
@@ -18,46 +22,174 @@
   </div>
 </header>
 
-<main class="confirm">
-  <div class="eyebrow">Step II of II · Sent</div>
+<main class="confirm sent-confirm">
+  <div class="eyebrow">Step II of II</div>
 
-  <img src="Envelope2.jpg" alt="Sealed envelope" style="width: 100%; max-width: 380px; height: auto; display: block; margin: 0 auto 32px;">
+  <img src="images/Envelope2.jpg" alt="Sealed envelope" class="sent-envelope-image">
 
-  <h1>Sent.</h1>
+  <h1>On its way.</h1>
 
   <p>
-    Your letter is going to a grad-student woman who said she's open to
-    letters about <em>relationships</em>. You'll get a notification when
-    she writes back.
+    Your letter will reach a grad-student woman who has opted in to read letters tagged
+    <em>relationships</em>. You'll be notified the moment she writes back.
   </p>
-  <p style="font-size:14px; letter-spacing:2px; text-transform:uppercase; font-style:normal; color:var(--ink-faint);">
-    You don't have to keep checking. We'll let you know.
+  <p class="sent-note">
+    You do not need to check back. A quiet note will arrive.
   </p>
 
-  <div class="ornament">&amp;</div>
-
-  <div style="display:flex; gap:14px; justify-content:center; margin-top: 28px; flex-wrap: wrap;">
+  <div class="sent-actions">
     <a href="inbox.html" class="btn secondary">Go to inbox</a>
-    <a href="inbox.html" class="btn ghost">Read another letter while you wait</a>
+    <a href="inbox.html" class="btn ghost">Read another while you wait</a>
   </div>
 </main>
 
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="script-mark">Dear Stranger</div>
-    <div class="links">
-      <a href="about.html">About</a>
-      <a href="about.html#ethics">Ethics</a>
-    </div>
-  </div>
-</footer>
-
-<nav class="proto-bar">
-  <a href="index.html">Home</a><span class="sep">·</span>
-  <a href="write.html">Write</a><span class="sep">·</span>
-  <a href="inbox.html">Inbox</a><span class="sep">·</span>
-  <a href="about.html">About</a>
-</nav>
-
 </body>
 </html>
+```
+
+```css
+/* style.css 맨 아래에 추가/교체할 sent 전용 블록 */
+
+/* Sent page */
+.sent-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.sent-page .site-header {
+  position: static;
+  top: auto;
+  padding: 30px 42px 8px;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.sent-page .nav-inner {
+  max-width: 1220px;
+}
+
+.sent-page .brand {
+  font-size: 38px;
+  letter-spacing: -0.4px;
+}
+
+.sent-page .nav-links {
+  gap: 34px;
+  font-size: 12px;
+  letter-spacing: 2.3px;
+}
+
+.sent-confirm {
+  width: min(92vw, 760px);
+  margin: 0 auto;
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px 24px 56px;
+}
+
+.sent-confirm .eyebrow {
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  opacity: 0.5;
+  margin-bottom: 18px;
+}
+
+.sent-envelope-image {
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto 24px;
+  border: 1px solid rgba(45, 19, 0, 0.35);
+  background: var(--paper);
+}
+
+.sent-confirm h1 {
+  font-family: var(--script);
+  font-size: clamp(90px, 10vw, 152px);
+  font-weight: 400;
+  line-height: 0.88;
+  letter-spacing: -0.8px;
+  margin: 0 0 26px;
+  color: var(--ink);
+}
+
+.sent-confirm p {
+  max-width: 530px;
+  margin: 0 auto 14px;
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--ink);
+}
+
+.sent-confirm p em {
+  font-family: inherit;
+  font-style: italic;
+}
+
+.sent-confirm .sent-note {
+  max-width: 520px;
+  margin-top: 8px;
+}
+
+.sent-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 34px;
+}
+
+.sent-actions .btn.secondary {
+  min-width: 160px;
+  justify-content: center;
+}
+
+.sent-actions .btn.ghost {
+  padding-top: 12px;
+  padding-bottom: 10px;
+}
+
+@media (max-width: 840px) {
+  .sent-page .site-header {
+    padding: 22px 20px 8px;
+  }
+
+  .sent-page .brand {
+    font-size: 30px;
+  }
+
+  .sent-page .nav-links {
+    gap: 18px;
+    font-size: 10px;
+    letter-spacing: 1.8px;
+  }
+
+  .sent-confirm {
+    min-height: calc(100vh - 96px);
+    padding: 12px 20px 40px;
+  }
+
+  .sent-confirm h1 {
+    font-size: clamp(64px, 20vw, 110px);
+    margin-bottom: 20px;
+  }
+
+  .sent-confirm p {
+    font-size: 14px;
+  }
+
+  .sent-actions {
+    margin-top: 26px;
+    gap: 10px;
+  }
+}
+```
