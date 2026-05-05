@@ -1,43 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sent — Dear Stranger</title>
-<link rel="stylesheet" href="style.css?v=100">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sent — Dear Stranger</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&family=Kapakana:wght@400&display=swap');
+
+    :root {
+      --mint: #DDF1EA;
+      --paper: #F8F5E9;
+      --ink: #2D1300;
+      --ink-soft: #3A3A3A;
+      --ink-faint: #7A7A7A;
+      --line: #9FC6BA;
+
+      --mono: "Kantumruy Pro", -apple-system, BlinkMacSystemFont, sans-serif;
+      --sans: "Manrope", -apple-system, BlinkMacSystemFont, sans-serif;
+      --script: "Kapakana", "Pinyon Script", cursive;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--mono);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--mint);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: var(--ink);
+      text-decoration: none;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 1px;
+      transition: all .15s;
+    }
+    a:hover { color: var(--ink-soft); }
+
+    img { max-width: 100%; display: block; }
+
+    .site-header {
+      position: static;
+      padding: 30px 42px 8px;
+    }
+
+    .nav-inner {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .brand {
+      font-family: var(--script);
+      font-size: 38px;
+      letter-spacing: -0.4px;
+      border: none;
+      line-height: 1;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 34px;
+      font-family: var(--sans);
+      font-size: 12px;
+      letter-spacing: 2.3px;
+      text-transform: uppercase;
+    }
+    .nav-links a { border: none; }
+
+    .sent-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .sent-confirm {
+      width: min(92vw, 760px);
+      margin: 0 auto;
+      min-height: calc(100vh - 120px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 18px 24px 56px;
+    }
+
+    .eyebrow {
+      font-family: var(--sans);
+      font-size: 10px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      opacity: 0.5;
+      margin-bottom: 18px;
+    }
+
+    .sent-envelope-image {
+      width: 100%;
+      max-width: 360px;
+      margin: 0 auto 24px;
+      border: 1px solid rgba(45, 19, 0, 0.35);
+      background: var(--paper);
+    }
+
+    .sent-confirm h1 {
+      font-family: var(--script);
+      font-size: clamp(90px, 10vw, 152px);
+      font-weight: 400;
+      line-height: 0.88;
+      letter-spacing: -0.8px;
+      margin: 0 0 26px;
+      color: var(--ink);
+    }
+
+    .sent-confirm p {
+      max-width: 530px;
+      margin: 0 auto 14px;
+      font-family: var(--mono);
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--ink);
+    }
+
+    .sent-confirm p em {
+      font-family: inherit;
+      font-style: italic;
+    }
+
+    .sent-note {
+      max-width: 520px;
+      margin-top: 8px;
+    }
+
+    .sent-actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .btn {
+      font-family: var(--sans);
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 14px 28px;
+      border: 1px solid var(--ink);
+      background: transparent;
+      color: var(--ink);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 400;
+    }
+
+    .btn.secondary {
+      border: 1px solid var(--line);
+      color: var(--ink-soft);
+      min-width: 160px;
+      justify-content: center;
+    }
+
+    .btn.ghost {
+      background: transparent;
+      color: var(--ink-soft);
+      border: none;
+      border-bottom: 1px solid var(--ink);
+      padding: 12px 2px 10px;
+      letter-spacing: 2px;
+      font-size: 10px;
+    }
+
+    @media (max-width: 840px) {
+      .site-header { padding: 22px 20px 8px; }
+      .brand { font-size: 30px; }
+      .nav-links { gap: 18px; font-size: 10px; letter-spacing: 1.8px; }
+
+      .sent-confirm {
+        min-height: calc(100vh - 96px);
+        padding: 12px 20px 40px;
+      }
+
+      .sent-confirm h1 {
+        font-size: clamp(64px, 20vw, 110px);
+        margin-bottom: 20px;
+      }
+
+      .sent-confirm p { font-size: 14px; }
+
+      .sent-actions { margin-top: 26px; gap: 10px; }
+    }
+  </style>
 </head>
 <body class="sent-page">
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="brand">DearStranger</a>
+      <nav class="nav-links">
+        <a href="about.html">About</a>
+        <a href="inbox.html">Inbox</a>
+      </nav>
+    </div>
+  </header>
 
-<header class="site-header">
-  <div class="nav-inner">
-    <a href="index.html" class="brand">DearStranger</a>
-    <nav class="nav-links">
-      <a href="about.html">About</a>
-      <a href="inbox.html">Inbox</a>
-    </nav>
-  </div>
-</header>
+  <main class="sent-confirm">
+    <div class="eyebrow">Step II of II</div>
 
-<main class="confirm sent-confirm">
-  <div class="eyebrow">Step II of II</div>
+    <img src="images/Envelope2.jpg" alt="Sealed envelope" class="sent-envelope-image" />
 
-  <img src="images/Envelope2.jpg" alt="Sealed envelope" class="sent-envelope-image">
+    <h1>On its way.</h1>
 
-  <h1>On its way.</h1>
+    <p>
+      Your letter will reach a grad-student woman who has opted in to read letters tagged
+      <em>relationships</em>. You'll be notified the moment she writes back.
+    </p>
+    <p class="sent-note">
+      You do not need to check back. A quiet note will arrive.
+    </p>
 
-  <p>
-    Your letter will reach a grad-student woman who has opted in to read letters tagged
-    <em>relationships</em>. You'll be notified the moment she writes back.
-  </p>
-  <p class="sent-note">
-    You do not need to check back. A quiet note will arrive.
-  </p>
-
-  <div class="sent-actions">
-    <a href="inbox.html" class="btn secondary">Go to inbox</a>
-    <a href="inbox.html" class="btn ghost">Read another while you wait</a>
-  </div>
-</main>
-
+    <div class="sent-actions">
+      <a href="inbox.html" class="btn secondary">Go to inbox</a>
+      <a href="inbox.html" class="btn ghost">Read another while you wait</a>
+    </div>
+  </main>
 </body>
 </html>
