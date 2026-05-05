@@ -1,6 +1,6 @@
 /* =========================================================
-   Dear Stranger — Minimal mint + mono typewriter
-   Type: Kapakana (script) · JetBrains Mono (body) · Inter (UI)
+   Dear Stranger — Minimal mint typewriter
+   Type: Kapakana (script) · Kantumruy Pro (body) · Manrope (UI)
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600&family=Manrope:wght@300;400;500;600&family=Kapakana:wght@400&display=swap');
@@ -45,9 +45,6 @@ a:hover { border-color: var(--accent-deep); color: var(--accent-deep); }
 
 img, svg { max-width: 100%; display: block; }
 
-/* =========================================================
-   Header — minimal, all caps sans
-   ========================================================= */
 .site-header {
   padding: 36px 48px 32px;
   background: transparent;
@@ -97,9 +94,6 @@ img, svg { max-width: 100%; display: block; }
   border: none;
 }
 
-/* =========================================================
-   Hero — maximum minimal
-   ========================================================= */
 .hero {
   padding: 80px 32px 120px;
   text-align: center;
@@ -167,9 +161,6 @@ img, svg { max-width: 100%; display: block; }
 
 .hero-meta { display: none; }
 
-/* =========================================================
-   Buttons — minimal text links or thin borders
-   ========================================================= */
 .btn {
   font-family: var(--sans);
   font-size: 11px;
@@ -202,9 +193,6 @@ img, svg { max-width: 100%; display: block; }
 }
 .btn.ghost:hover { border-bottom-color: var(--accent-deep); color: var(--accent-deep); background: transparent; }
 
-/* =========================================================
-   Sections
-   ========================================================= */
 .section { padding: 100px 32px; text-align: center; }
 .section.alt { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-inner { max-width: var(--max); margin: 0 auto; }
@@ -239,7 +227,6 @@ img, svg { max-width: 100%; display: block; }
   font-weight: 400;
 }
 
-/* Steps */
 .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px; text-align: left; max-width: 900px; margin: 0 auto; }
 .step { padding: 0; position: relative; }
 .step .num {
@@ -269,9 +256,6 @@ img, svg { max-width: 100%; display: block; }
   font-weight: 400;
 }
 
-/* =========================================================
-   Letter cards — minimal pastel tea-card feel
-   ========================================================= */
 .letters-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -292,9 +276,7 @@ img, svg { max-width: 100%; display: block; }
 .letter-card:nth-child(1) { background: var(--mint-soft); }
 .letter-card:nth-child(2) { background: #FFF5E1; }
 .letter-card:nth-child(3) { background: #EDEED5; }
-.letter-card:hover {
-  transform: translateY(-2px);
-}
+.letter-card:hover { transform: translateY(-2px); }
 .letter-card .tag {
   font-family: var(--sans);
   font-size: 9px;
@@ -326,9 +308,6 @@ img, svg { max-width: 100%; display: block; }
   font-weight: 400;
 }
 
-/* =========================================================
-   Stationery
-   ========================================================= */
 .stationery {
   background: var(--paper);
   border: 1px solid var(--line);
@@ -370,9 +349,6 @@ img, svg { max-width: 100%; display: block; }
   line-height: 1;
 }
 
-/* =========================================================
-   Filter chips — no borders, just text
-   ========================================================= */
 .filter-group { margin-bottom: 32px; }
 .filter-group .label {
   font-family: var(--sans);
@@ -404,9 +380,6 @@ img, svg { max-width: 100%; display: block; }
 .chip:hover { background: var(--mint-soft); }
 .chip.active { background: var(--ink); color: var(--mint); }
 
-/* =========================================================
-   Layout
-   ========================================================= */
 .page { max-width: var(--max); margin: 0 auto; padding: 60px 32px 100px; }
 .narrow { max-width: 720px; margin: 0 auto; }
 
@@ -477,9 +450,6 @@ img, svg { max-width: 100%; display: block; }
   color: var(--ink);
 }
 
-/* =========================================================
-   Inbox
-   ========================================================= */
 .tabs { display: flex; gap: 36px; border-bottom: 1px solid var(--ink); margin-bottom: 32px; justify-content: center; }
 .tab {
   font-family: var(--sans);
@@ -550,304 +520,4 @@ img, svg { max-width: 100%; display: block; }
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-}
-.inbox-item .when {
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  color: var(--ink);
-  white-space: nowrap;
-  text-transform: uppercase;
-}
-.inbox-item.unread .icon::after {
-  content: '';
-  position: absolute;
-  right: -6px; top: -3px;
-  width: 7px; height: 7px;
-  background: var(--ink);
-  border-radius: 50%;
-}
-
-/* =========================================================
-   Read
-   ========================================================= */
-.read-meta {
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 28px;
-  display: flex;
-  gap: 12px;
-  justify-content: space-between;
-  padding-bottom: 18px;
-  border-bottom: 1px solid var(--ink);
-}
-.read-meta a { color: var(--ink); cursor: pointer; border: none; }
-.received-letter { margin-bottom: 56px; }
-.received-letter .body {
-  font-family: var(--mono);
-  font-size: 14px;
-  line-height: 29px;
-  color: var(--ink);
-  white-space: pre-wrap;
-}
-
-.divider-or {
-  display: flex;
-  align-items: center;
-  gap: 22px;
-  font-family: var(--script);
-  font-size: 42px;
-  color: var(--ink);
-  margin: 64px 0 32px;
-  letter-spacing: 0;
-  justify-content: center;
-  line-height: 1;
-}
-.divider-or::before, .divider-or::after {
-  content: ''; flex: 1; height: 1px; background: var(--ink); max-width: 200px;
-}
-
-/* =========================================================
-   Footer
-   ========================================================= */
-.site-footer {
-  padding: 56px 32px 48px;
-  border-top: 1px solid var(--ink);
-  background: transparent;
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--ink);
-  margin-top: 96px;
-  text-transform: uppercase;
-  text-align: center;
-}
-.footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  align-items: center;
-}
-.footer-inner .script-mark {
-  font-family: var(--script);
-  font-size: 36px;
-  color: var(--ink);
-  letter-spacing: 0;
-  text-transform: none;
-  line-height: 1;
-}
-.footer-inner .links { display: flex; gap: 24px; flex-wrap: wrap; justify-content: center; }
-.footer-inner a { border: none; color: var(--ink); }
-.footer-inner a:hover { color: var(--accent-deep); }
-
-/* =========================================================
-   Confirmation
-   ========================================================= */
-.confirm {
-  text-align: center;
-  padding: 72px 32px;
-  max-width: 640px;
-  margin: 0 auto;
-}
-.confirm .eyebrow {
-  font-family: var(--sans);
-  font-size: 10px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin-bottom: 32px;
-}
-.confirm h1 {
-  font-family: var(--script);
-  font-size: 140px;
-  font-weight: 400;
-  margin: 24px 0 32px;
-  line-height: 0.9;
-  color: var(--ink);
-  letter-spacing: -1px;
-}
-.confirm p {
-  font-family: var(--mono);
-  font-size: 14px;
-  color: var(--ink);
-  margin: 0 auto 20px;
-  line-height: 1.85;
-  max-width: 440px;
-}
-
-/* =========================================================
-   About / Prose
-   ========================================================= */
-.prose { max-width: 680px; margin: 0 auto; }
-.prose h1 {
-  font-family: var(--script);
-  font-weight: 400;
-  font-size: 120px;
-  margin: 0 0 40px;
-  line-height: 0.95;
-  text-align: center;
-  color: var(--ink);
-  letter-spacing: -1px;
-}
-.prose h1 em { font-family: var(--script); font-style: normal; }
-.prose h2 {
-  font-family: var(--script);
-  font-weight: 400;
-  font-size: 56px;
-  margin: 72px 0 20px;
-  line-height: 1;
-  color: var(--ink);
-  text-align: center;
-}
-.prose h2 em { font-family: var(--script); font-style: normal; }
-.prose h3 {
-  font-family: var(--sans);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 2.5px;
-  text-transform: uppercase;
-  margin: 36px 0 12px;
-  color: var(--ink);
-  text-align: center;
-}
-.prose p { font-family: var(--mono); font-size: 14px; color: var(--ink); line-height: 1.85; margin: 0 0 22px; }
-.prose p em { font-style: italic; color: var(--accent-deep); }
-.prose ul { padding-left: 22px; color: var(--ink); }
-.prose li { margin-bottom: 10px; line-height: 1.7; font-family: var(--mono); font-size: 14px; }
-
-/* =========================================================
-   Envelope illustration — handcrafted candle feel
-   ========================================================= */
-.envelope-art {
-  position: relative;
-  width: 440px;
-  margin: 0 auto;
-  aspect-ratio: 1.4 / 1;
-  background: var(--paper);
-  border: 1px solid var(--ink);
-  overflow: hidden;
-  box-shadow: 0 2px 0 var(--line-faint);
-}
-.envelope-art::before {
-  content: "";
-  position: absolute;
-  top: -1px; left: -1px; right: -1px;
-  height: 58%;
-  background: var(--paper-warm);
-  clip-path: polygon(0 0, 100% 0, 50% 100%);
-  border-bottom: 1px solid var(--ink);
-}
-/* candle/thread illustration center */
-.envelope-art::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 45%;
-  width: 18px;
-  height: 35%;
-  background: linear-gradient(to bottom, var(--accent) 0%, var(--accent) 70%, var(--accent-deep) 85%, var(--accent-deep) 100%);
-  transform: translateX(-50%);
-  border-radius: 9px 9px 14px 14px / 4px 4px 14px 14px;
-  box-shadow: 0 8px 0 -2px var(--accent-deep);
-}
-.envelope-art .stamp,
-.envelope-art .address { display: none; }
-
-/* =========================================================
-   Responsive
-   ========================================================= */
-@media (max-width: 840px) {
-  html, body { font-size: 14px; }
-  .site-header { padding: 24px 20px 20px; }
-  .nav-inner { gap: 16px; flex-wrap: wrap; }
-  .nav-links { gap: 14px; font-size: 10px; letter-spacing: 1.5px; }
-  .site-header .search { font-size: 10px; letter-spacing: 1.5px; }
-
-  .hero { padding: 40px 20px 72px; }
-  .hero h1 { font-size: 92px; margin: 20px 0 48px; }
-  .hero p.lede { font-size: 13px; }
-  .hero .sub-head { font-size: 18px; margin: 48px 0 32px; }
-
-  .page { padding: 32px 20px 72px; }
-  .section { padding: 64px 20px; }
-  .section h2 { font-size: 64px; }
-  .section .sub { margin-bottom: 48px; font-size: 13px; }
-
-  .steps { grid-template-columns: 1fr; gap: 36px; }
-  .step .num { font-size: 60px; margin-bottom: 14px; }
-
-  .letters-grid { grid-template-columns: 1fr; gap: 18px; }
-  .letter-card { padding: 24px 22px 20px; }
-  .letter-card blockquote { font-size: 22px; }
-
-  .write-layout { grid-template-columns: 1fr; gap: 32px; }
-  .write-aside { position: static; order: -1; }
-  .stationery { padding: 32px 24px; }
-  .stationery textarea { font-size: 13px; line-height: 26px; min-height: 220px; }
-  .stationery .salutation { font-size: 32px; }
-  .stationery .signature { font-size: 28px; }
-
-  .page-title { font-size: 72px; margin-bottom: 40px; }
-
-  .inbox-item { grid-template-columns: 36px 1fr auto; gap: 14px; padding: 20px 4px; }
-  .inbox-item .icon { width: 32px; height: 22px; }
-  .inbox-item .body .preview { font-size: 13px; }
-
-  .prose h1 { font-size: 72px; }
-  .prose h2 { font-size: 40px; }
-  .prose p { font-size: 13px; }
-
-  .confirm { padding: 48px 20px; }
-  .confirm h1 { font-size: 76px; }
-
-  .tabs { gap: 20px; }
-
-  .btn { padding: 12px 22px; font-size: 10px; letter-spacing: 1.5px; }
-  .hero-cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 280px; margin: 0 auto 36px; }
-  .hero-cta .btn { justify-content: center; }
-
-  .envelope-art { width: 280px; }
-}
-
-/* =========================================================
-   Prototype nav
-   ========================================================= */
-.proto-bar {
-  position: fixed;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--ink);
-  color: var(--mint);
-  padding: 8px 12px;
-  border-radius: 999px;
-  display: flex;
-  gap: 4px;
-  font-family: var(--sans);
-  font-size: 9px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  z-index: 100;
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, .3);
-  opacity: .88;
-}
-.proto-bar a {
-  color: var(--mint);
-  border: none;
-  padding: 5px 12px;
-  border-radius: 999px;
-  opacity: .7;
-  transition: all .15s;
-}
-.proto-bar a:hover { opacity: 1; background: rgba(255,255,255,.1); }
-.proto-bar a.current { opacity: 1; background: var(--accent-deep); }
-.proto-bar .sep { opacity: .3; padding: 5px 2px; }
-@media (max-width: 840px) {
-  .proto-bar { font-size: 8px; bottom: 10px; padding: 6px 8px; }
-  .proto-bar a { padding: 4px 8px; }
 }
